@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin's Login</title>
+    <link rel="stylesheet" href="/css/LocalLeader'sLogin.css">
+</head>
+<body>
+<section id="loginFormSection">
+    <form action="/php/sectorLeaderLogin.php" id="contactForm" method="post">
+        <h1>Sector Leader Login</h1>
+
+        <label for="fullName">Full Names:</label>
+        <input type="text" id="fullName" name="full_name" placeholder="Enter your names" required />
+
+        <label for="district">District</label>
+        <select name="district" id="district" class="option" required>
+            <option value="" disabled selected>Select your district</option>
+            <option value="burera">BURERA</option>
+            <option value="gakenke">GAKENKE</option>
+            <option value="gicumbi">GICUMBI</option>
+            <option value="musanze">MUSANZE</option>
+            <option value="rulindo">RULINDO</option>
+            <option value="gisagara">GISAGARA</option>
+            <option value="huye">HUYE</option>
+            <option value="kamonyi">KAMONYI</option>
+            <option value="nyamagabe">NYAMAGABE</option>
+            <option value="nyanza">NYANZA</option>
+            <option value="nyaruguru">NYARUGURU</option>
+            <option value="ruhango">RUHANGO</option>
+            <option value="bugesera">BUGESERA</option>
+            <option value="gatsibo">GATSIBO</option>
+            <option value="kayonza">KAYONZA</option>
+            <option value="kirehe">KIREHE</option>
+            <option value="ngoma">NGOMA</option>
+            <option value="nyagatare">NYAGATARE</option>
+            <option value="rwamagana">RWAMAGANA</option>
+            <option value="karongi">KARONGI</option>
+            <option value="ngororero">NGORORERO</option>
+            <option value="nyabihu">NYABIHU</option>
+            <option value="nyamasheke">NYAMASHEKE</option>
+            <option value="rubavu">RUBAVU</option>
+            <option value="rusizi">RUSIZI</option>
+            <option value="rutsiro">RUTSIRO</option>
+            <option value="gasabo">GASABO</option>
+            <option value="kicukiro">KICUKIRO</option>
+            <option value="nyarugenge">NYARUGENGE</option>
+        </select>
+
+        <label for="sector">Sector</label>
+        <input type="text" id="sector" name="sector" placeholder="Your sector" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Write your password" required />
+
+        <input type="submit" value="Login" onclick="">
+    </form>
+
+    <div class="btn btn-group-custom">
+        <a href="#" class="btn m-2">Login as sector leader</a>
+        <a href="/html/LocalLeader'sLogin.html" class="btn m-2">Login as Local leader</a>
+    </div>
+</section>
+</body>
+</html>
