@@ -10,8 +10,9 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link rel="stylesheet" href="/css/ManageFines.css">
 </head>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+</script>
 <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
       <div class="container">
@@ -65,15 +66,12 @@
                   <section id="dashboard">
                         <h1>Welcome Dear leader: NAYITURIKI Adolphe</h1>
                         <p>Umuganda Attendance & Fines Tracking System (UATS)</p>
-                        <p><strong>District:</strong> <span id="showDistrict"></span> |
-                        <strong>Sector:</strong> <span id="showSector"></span>
+                        <p><strong>District: BURERA</strong> <span id="showDistrict"></span> |
+                        <strong>Sector: KINYABABA</strong> <span id="showSector"></span>
                         </p>
-                  <form class="search-box" onsubmit="handleSearch(event)">
-                        <input type="text" id="searchInput" placeholder="Search fines list" required />
-                        <button type="submit" class="btn btn-success">Search Cell</button>
-                  </form>
-                  <div id="searchResults"></div>
-                  <div id="descriptionBox"></div>
+                  <script async src="https://cse.google.com/cse.js?cx=2035df413abba4137"></script>
+                  <p style="float: left;">Seach any district info</p><br>
+                  <div class="gcse-search"></div>
                   </section>
                   <h2 style="background-color: white;" id="fines">Fine's Status in KINYABABA SECTOR</h2>
                   <h3>KINYABABA SECTOR:</h3><span><button class="btn btn-warning" style="float: right;" onclick="makeEditable()">UPDATE TABLE</button></span>
@@ -127,11 +125,10 @@
                   <div class="text-center">
                         <button class="btn btn-success" onclick="saveChanges()">Save</button>
                   </div>
-                  <section class="chart">
-                  
-                        <canvas id="monthlyChart"></canvas>
-                  </section>
-                  <h4 class="my-5">Peoples who are fined In This Month</h4><span><button class="btn btn-warning" style="float: right;" onclick="makeEditable2()" >UPDATE TABLE</button></span>
+                  <h2 class="mt-4">Fines level Vs Which are solved by citizens who fined</h2>
+                  <canvas id="finesChart"></canvas>
+                  <h4 class="my-5" style="margin-top: px; color: #0077b5;">Peoples who are fined In This Month</h4>
+                  <span><button class="btn btn-warning" style="float: right;" onclick="makeEditable2()" >UPDATE TABLE</button></span>
                   <table class="table2 table2-striped table2-bordered" id="attendanceTable2">
                         <thead>
                               <tr>
@@ -230,7 +227,16 @@
                   <input type="text" id="message" name="message" placeholder="Write here your message" />
                   <input type="submit" value="Submit" />
             </form>
-            Copyright © www.nayituriki.com@gmail.com
+            <section class="text-center mt-4">
+                  <h5>Kigali-Rwanda</h5>
+            <div class="social-links">
+                  <a href="https://github.com/adolphenayituriki" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="#" target="_blank" title="LinkedIn" style="color:#0077b5;"><i class="fab fa-linkedin"></i></a>
+                  <a href="#" target="_blank" title="Instagram" style="color:#dd2476;"><i class="fab fa-instagram"></i></a>
+                  <a href="http://www.youtube.com/@Relax-words03" target="_blank" title="YouTube" style="color:#ff0000;"><i class="fab fa-youtube"></i></a><br>
+                  www.nayituriki.com@gmail.com
+      </div>
+</section>
       </div>
       </footer>
       </main>

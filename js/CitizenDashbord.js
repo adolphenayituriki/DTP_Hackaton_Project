@@ -11,11 +11,18 @@ function toggleDropdown() {
       }
 }
 
- function showFinesSection() {
+function showFinesSection() {
       const section = document.getElementById('finesSection');
       section.style.display = section.style.display === 'block' ? 'none' : 'block';
       window.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+      document.getElementById('attendanceStatus').style.display = "none";
     }
+function showAttendaceStatus() {
+      const section = document.getElementById('attendanceStatus');
+      section.style.display = section.style.display === 'block' ? 'none' : 'block';
+      window.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+      document.getElementById('finesSection').style.display = "none";
+  }
 function PyFines(){
   document.getElementById('payeFines').style.display = "block";
 }

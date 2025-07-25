@@ -145,61 +145,7 @@ new Chart(populationCtx, {
     }
   }
 })
-
 function makeEditable() {
-      const table = document.getElementById('attendanceTable');
-      for (let row of table.rows) {
-        if (row.rowIndex === 0) continue;
-        for (let i = 1; i < row.cells.length; i++) {
-          const cell = row.cells[i];
-          const currentValue = cell.textContent.trim();
-          cell.innerHTML = `<input type="text" value="${currentValue}" class="form-control form-control-sm">`;
-        }
-      }
-    }
-
-    function saveChanges() {
-      const table = document.getElementById('attendanceTable');
-      for (let row of table.rows) {
-        if (row.rowIndex === 0) continue;
-        for (let i = 1; i < row.cells.length; i++) {
-          const input = row.cells[i].querySelector('input');
-          if (input) {
-            row.cells[i].textContent = input.value;
-          }
-        }
-      }
-      alert("Changes saved!");
-    }
-
-    function addAttendee(event) {
-      event.preventDefault();
-
-      const name = document.getElementById('newName').value;
-      const cell = document.getElementById('newCell').value;
-      const village = document.getElementById('newVillage').value;
-      const date = document.getElementById('newDate').value;
-
-      const table = document.getElementById('attendanceTable').getElementsByTagName('tbody')[0];
-      const newRow = table.insertRow();
-      const rowCount = table.rows.length;
-
-      newRow.insertCell(0).textContent = rowCount;
-      newRow.insertCell(1).textContent = name;
-      newRow.insertCell(2).textContent = cell;
-      newRow.insertCell(3).textContent = village;
-      newRow.insertCell(4).textContent = date;
-      newRow.insertCell(5).textContent = "✔️";
-
-      // Clear form
-      document.getElementById('addForm').reset();
-    }
-    function postAnnouncement(){
-      document.getElementById('postAnnouncement').addEventListener.event;
-    }
-
-
-    function makeEditable() {
       const table = document.getElementById('attendanceTable');
       for (let row of table.rows) {
         if (row.rowIndex === 0) continue;
@@ -301,3 +247,37 @@ function makeEditable() {
     function postAnnouncement(){
       document.getElementById('postAnnouncement').addEventListener.event;
     }
+
+    const ctx = document.getElementById('finesChart').getContext('2d');
+    const finesChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Bugamba', 'Kaganda', 'Musasa', 'Rutovu'],
+            datasets: [
+                {
+                    label: 'Number of Fines',
+                    data: [15, 4, 0, 6],
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Solved',
+                    data: [2, 2, 0, 2],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                title: { display: true, text: 'Fines and Solved Cases per Cell' }
+            },
+            scales: {
+                y: { beginAtZero: true, stepSize: 1 }
+            }
+        }
+    });
