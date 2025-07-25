@@ -168,6 +168,13 @@ form {
             padding: 10;
       }
 }
+@media (max-width: 600px) {
+.table {
+      font-size: 14px;
+      overflow-x: auto;
+      display: block;
+}
+}
 
 form h1, label {
       color: #0a8bd1;
