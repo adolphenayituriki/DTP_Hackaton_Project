@@ -69,13 +69,16 @@ section#page2 p {
       text-align: center;
       font-weight: bold;
 }
-table{
-      width: 100%;
-      margin-top: 20px;
-      box-sizing: border-box;
+.table-container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-@media (max-width: 200px) {
-table {
+@media (max-width: 600px) {
+.table {
       font-size: 14px;
       overflow-x: auto;
       display: block;
@@ -86,21 +89,7 @@ table tr,td,th{
       padding: 5px;
       box-shadow: 5px 4px solid green;
 }
-table .pen{
-      font-size: 20px;
-      display: none;
-      color: #056a51;
-      cursor: pointer;
-}
-.table2.pen{
-      font-size: 20px;
-      display: none;
-      color: #056a51;
-      cursor: pointer;
-}
-table .pen:hover{
-      background-color: #c3cad1;
-}
+
 h4{
       text-align: center;
 }
