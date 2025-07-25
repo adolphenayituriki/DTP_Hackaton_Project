@@ -57,6 +57,13 @@ const data = [
       { keyword: "RUTOVU", description: "Leadership concerns and political issues", link: "#leadership" }
 ];
 
+function ParticipationTrend(){
+  document.getElementById('Participation_Trends').style.display = "block";
+}
+function ManageFineOpen(){
+  document.getElementById('fineStatus').style.display = "block";
+  document.getElementById('Participation_Trends').style.display = "none";
+}
 function handleSearch(event) {
       event.preventDefault();
       const query = document.getElementById("searchInput").value.trim().toLowerCase();
@@ -100,7 +107,7 @@ new Chart(monthlyCtx, {
     responsive: true,
     plugins: {
       legend: { display: false },
-      title: { display: false }
+      title: { display: true, text: 'Districts' }
     },
     scales: {
       x: {
@@ -128,7 +135,7 @@ new Chart(populationCtx, {
     responsive: true,
     plugins: {
       legend: { display: false },
-      title: { display: false }
+      title: { display: true, text: 'District' }
     },
     scales: {
       x: {
@@ -138,3 +145,159 @@ new Chart(populationCtx, {
     }
   }
 })
+
+function makeEditable() {
+      const table = document.getElementById('attendanceTable');
+      for (let row of table.rows) {
+        if (row.rowIndex === 0) continue;
+        for (let i = 1; i < row.cells.length; i++) {
+          const cell = row.cells[i];
+          const currentValue = cell.textContent.trim();
+          cell.innerHTML = `<input type="text" value="${currentValue}" class="form-control form-control-sm">`;
+        }
+      }
+    }
+
+    function saveChanges() {
+      const table = document.getElementById('attendanceTable');
+      for (let row of table.rows) {
+        if (row.rowIndex === 0) continue;
+        for (let i = 1; i < row.cells.length; i++) {
+          const input = row.cells[i].querySelector('input');
+          if (input) {
+            row.cells[i].textContent = input.value;
+          }
+        }
+      }
+      alert("Changes saved!");
+    }
+
+    function addAttendee(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('newName').value;
+      const cell = document.getElementById('newCell').value;
+      const village = document.getElementById('newVillage').value;
+      const date = document.getElementById('newDate').value;
+
+      const table = document.getElementById('attendanceTable').getElementsByTagName('tbody')[0];
+      const newRow = table.insertRow();
+      const rowCount = table.rows.length;
+
+      newRow.insertCell(0).textContent = rowCount;
+      newRow.insertCell(1).textContent = name;
+      newRow.insertCell(2).textContent = cell;
+      newRow.insertCell(3).textContent = village;
+      newRow.insertCell(4).textContent = date;
+      newRow.insertCell(5).textContent = "✔️";
+
+      // Clear form
+      document.getElementById('addForm').reset();
+    }
+    function postAnnouncement(){
+      document.getElementById('postAnnouncement').addEventListener.event;
+    }
+
+
+    function makeEditable() {
+      const table = document.getElementById('attendanceTable');
+      for (let row of table.rows) {
+        if (row.rowIndex === 0) continue;
+        for (let i = 1; i < row.cells.length; i++) {
+          const cell = row.cells[i];
+          const currentValue = cell.textContent.trim();
+          cell.innerHTML = `<input type="text" value="${currentValue}" class="form-control form-control-sm">`;
+        }
+      }
+    }
+
+    function saveChanges() {
+      const table = document.getElementById('attendanceTable');
+      for (let row of table.rows) {
+        if (row.rowIndex === 0) continue;
+        for (let i = 1; i < row.cells.length; i++) {
+          const input = row.cells[i].querySelector('input');
+          if (input) {
+            row.cells[i].textContent = input.value;
+          }
+        }
+      }
+      alert("Changes saved!");
+    }
+
+    function addAttendee(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('newName').value;
+      const cell = document.getElementById('newCell').value;
+      const village = document.getElementById('newVillage').value;
+      const date = document.getElementById('newDate').value;
+
+      const table = document.getElementById('attendanceTable').getElementsByTagName('tbody')[0];
+      const newRow = table.insertRow();
+      const rowCount = table.rows.length;
+
+      newRow.insertCell(0).textContent = rowCount;
+      newRow.insertCell(1).textContent = name;
+      newRow.insertCell(2).textContent = cell;
+      newRow.insertCell(3).textContent = village;
+      newRow.insertCell(4).textContent = date;
+      newRow.insertCell(5).textContent = "✔️";
+
+      // Clear form
+      document.getElementById('addForm').reset();
+    }
+    function postAnnouncement(){
+      document.getElementById('postAnnouncement').addEventListener.event;
+    }
+    function makeEditable2() {
+      const table = document.getElementById('attendanceTable2');
+      for (let row of table.rows) {
+        if (row.rowIndex === 0) continue;
+        for (let i = 1; i < row.cells.length; i++) {
+          const cell = row.cells[i];
+          const currentValue = cell.textContent.trim();
+          cell.innerHTML = `<input type="text" value="${currentValue}" class="form-control form-control-sm">`;
+        }
+      }
+    }
+
+    function saveChanges() {
+      const table = document.getElementById('attendanceTable');
+      for (let row of table.rows) {
+        if (row.rowIndex === 0) continue;
+        for (let i = 1; i < row.cells.length; i++) {
+          const input = row.cells[i].querySelector('input');
+          if (input) {
+            row.cells[i].textContent = input.value;
+          }
+        }
+      }
+      alert("Changes saved!");
+    }
+
+    function addAttendee(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('newName').value;
+      const cell = document.getElementById('newCell').value;
+      const village = document.getElementById('newVillage').value;
+      const date = document.getElementById('newDate').value;
+
+      const table = document.getElementById('attendanceTable2').getElementsByTagName('tbody')[0];
+      const newRow = table.insertRow();
+      const rowCount = table.rows.length;
+
+      newRow.insertCell(0).textContent = rowCount;
+      newRow.insertCell(1).textContent = name;
+      newRow.insertCell(2).textContent = cell;
+      newRow.insertCell(3).textContent = village;
+      newRow.insertCell(4).textContent = date;
+      newRow.insertCell(5).textContent = "✔️";
+
+      // Clear form
+      document.getElementById('addForm').reset();
+    }
+    function postAnnouncement(){
+      document.getElementById('postAnnouncement').addEventListener.event;
+    }

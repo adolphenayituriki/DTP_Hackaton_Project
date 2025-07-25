@@ -1,39 +1,32 @@
 <?php
 // php/sectorLeaderLogin.php
 session_start();
-if (password_verify($password, $user['password'])) {
-    // Successful login
-    $_SESSION['leader_id'] = $user['id'];
-    $_SESSION['leader_name'] = $user['full_name'];
 
-    // Redirect to dashboard
-    header("Location: /LocalLeaderLogin.html"); 
-    exit;
-}
-header("Location: /umuganda_system/dashboard.html");
-header("Location: LocalLeaderLogin.html");
+// Enable error reporting (remove in production)
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-
-// Database connection
+// Database config
 $host = 'localhost';
-$db   = 'umuganda_system';
-$user = 'root'; // change if needed
-$pass = '';     // your DB password
-$conn = new mysqli($host, $user, $pass, $db);
+$db = 'umuganda';
+$user = 'root';  // Adjust if needed
+$pass = '';      // Adjust if needed
 
-// Check connection
+// Connect
+$conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Sanitize and get input
+// Get inputs and sanitize
 $full_name = trim($_POST['full_name']);
 $district = trim($_POST['district']);
 $sector = trim($_POST['sector']);
-$password = $_POST['password']; // Don't trim password
+$password = $_POST['password'];
 
-// Query to check if user exists
-$sql = "SELECT * FROM sector_leaders WHERE full_name=? AND district=? AND sector=?";
+// Prepare query
+$sql = "SELECT * FROM sector_leaders WHERE full_name = ? AND district = ? AND sector = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $full_name, $district, $sector);
 $stmt->execute();
@@ -41,12 +34,12 @@ $result = $stmt->get_result();
 
 if ($result->num_rows === 1) {
     $user = $result->fetch_assoc();
-    
+    // Verify password
     if (password_verify($password, $user['password'])) {
-        // Successful login
+        // Login success
         $_SESSION['leader_id'] = $user['id'];
         $_SESSION['leader_name'] = $user['full_name'];
-        header("Location: /dashboard.html"); // Redirect to admin dashboard
+        header("Location: ../dashboard.php");  // Redirect to dashboard
         exit;
     } else {
         echo "❌ Incorrect password.";
@@ -55,7 +48,5 @@ if ($result->num_rows === 1) {
     echo "❌ Leader not found.";
 }
 
-
 $conn->close();
 ?>
-

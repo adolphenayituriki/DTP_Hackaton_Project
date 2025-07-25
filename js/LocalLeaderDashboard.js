@@ -1,3 +1,16 @@
+function toggleDropdown() {
+      document.getElementById("dropdownMenu").classList.toggle("show");
+}
+    // Close the dropdown if user clicks outside of it
+      window.onclick = function(event) {
+      if (!event.target.matches('.dropdown-toggle') && !event.target.closest('.dropdown-toggle')) {
+            var dropdowns = document.getElementsByClassName("dropdown-menu");
+            for (let i = 0; i < dropdowns.length; i++) {
+            dropdowns[i].classList.remove("show");
+      }
+      }
+}
+
 function makeEditable() {
       document.getElementById('save').style.display = "block";
       const table = document.getElementById('attendanceTable');
@@ -73,4 +86,7 @@ function makeEditable() {
 
       // Clear form
       document.getElementById('addForm').reset();
+    }
+    function postAnnouncement(){
+      document.getElementById('postAnnouncement').addEventListener.event;
     }
