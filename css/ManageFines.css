@@ -1,7 +1,7 @@
 body {
       color: #333;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      max-width: 4000px;
+      max-width: 100%;
 }
     /* Navbar brand style */
 .navbar-brand {
