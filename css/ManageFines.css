@@ -75,7 +75,7 @@ table{
       box-sizing: border-box;
 }
 @media (max-width: 200px) {
-.table {
+table {
       font-size: 14px;
       overflow-x: auto;
       display: block;
