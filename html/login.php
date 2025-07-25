@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin's Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="/umuganda_system/css/Admin'sLogin.css">
     <link rel="stylesheet" href="/css/Admin'sLogin.css">
 </head>
 <body>
-<section id="loginFormSection">
-    <form action="/umuganda_system/php/sectorLogin.php" method="post">
-    <h1>Sector Leader Login</h1>
+<section id="loginFormSection" class="container mt-5" style="max-width: 500px;">
+<?php if (isset($_GET['error'])): ?>
+    <div class="alert alert-danger">Invalid credentials. Please try again.</div>
+<?php endif; ?>
 
-    <label for="fullName">Full Names:</label>
-    <input type="text" id="full_name" name="full_name" placeholder="Enter your names" required />
 
-    <label for="district">District</label>
-    <select name="district" id="district" class="option" required>
+    <form action="/DTP_Hackaton_Project/php/sectorLogin.php" method="post" id="contactForm">
+        <h1 class="mb-4">Sector Leader Login</h1>
+
+        <label for="full_name" class="form-label">Full Names:</label>
+        <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Enter your names" required />
+
+        <label for="district" class="form-label mt-3">District</label>
+        <select name="district" id="district" class="form-select" required>
             <option value="" disabled selected>Select your district</option>
             <option value="burera">BURERA</option>
             <option value="gakenke">GAKENKE</option>
@@ -50,16 +56,19 @@
             <option value="nyarugenge">NYARUGENGE</option>
         </select>
 
-        <label for="sector">Sector</label>
-    <input type="text" id="sector" name="sector" placeholder="Your sector" required />
+        <label for="sector" class="form-label mt-3">Sector</label>
+        <input type="text" id="sector" name="sector" class="form-control" placeholder="Your sector" required />
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Write your password" required />
+        <label for="password" class="form-label mt-3">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Write your password" required />
 
-    <!-- Proper Submit Button -->
-    <button type="submit" class="btn btn-success btn-sm">Login</button>
-</form>
+        <button type="submit" class="btn btn-success btn-sm mt-4">Login</button>
 
+        <div class="btn btn-group-custom mt-3">
+            <a href="#" class="btn m-2">Login as sector leader</a>
+            <a href="/umuganda_system/html/LocalLeader'sLogin.html" class="btn m-2">Login as Local leader</a>
+        </div>
+    </form>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

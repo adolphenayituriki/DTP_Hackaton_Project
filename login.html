@@ -19,7 +19,7 @@ $hasError = isset($_GET['error']);
         <div class="alert alert-danger">Credentials not found. Please try again.</div>
     <?php endif; ?>
 
-    <form action="/umuganda_system/php/sectorLogin.php" method="post" id="contactForm">
+    <form onsubmit="window.location.href='/html/ManageFines.html'" method="post" id="contactForm">
         <h1 class="mb-4">Sector Leader Login</h1>
 
         <label for="full_name" class="form-label">Full Names:</label>
@@ -65,11 +65,11 @@ $hasError = isset($_GET['error']);
         <label for="password" class="form-label mt-3">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Write your password" required />
 
-        <button type="submit" class="btn btn-success btn-sm mt-4">Login</button>
+        <button type="submit" class="btn btn-success btn-sm mt-4" onclick="location.href='/html/ManageFines.html'">Login</button>
 
         <div class="btn btn-group-custom mt-3">
             <a href="#" class="btn m-2">Login as sector leader</a>
-            <a href="/umuganda_system/html/LocalLeader'sLogin.html" class="btn m-2">Login as Local leader</a>
+            <a href="/html/LocalLeader'sLogin.html" class="btn m-2">Login as Local leader</a>
         </div>
     </form>
 </section>
